@@ -1,15 +1,20 @@
 const koa = require('koa')
 const koaRouter = require('koa-router')()
 
+const albumEndpoint = require('./endpoint/api/v1/album')
+const authorEndpoint = require('./endpoint/api/v1/author')
+const musicEndpoint = require('./endpoint/api/v1/music')
+
 
 const app = new koa()
 
 koaRouter
   .get('/', async ctx => ctx.body = 'Hello World!')
-  .get('/api/v1/album', async ctx => ctx.body = 'Album!')
-  .get('/api/v1/author', async ctx => ctx.body = 'Author!')
-  .get('/api/v1/music', async ctx => ctx.body = 'Music!')
+
+let router = koaRouter
+const ep = [albumEndpoint, authorEndpoint, musicEndpoint]
+ep.forEach(x => router = x(router))  
 
 app
-  .use(koaRouter.routes())
+  .use(router.routes())
   .listen(3000)
