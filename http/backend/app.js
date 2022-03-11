@@ -11,10 +11,9 @@ const app = new koa()
 koaRouter
   .get('/', async ctx => ctx.body = 'Hello World!')
 
-let router = koaRouter
 const ep = [albumEndpoint, authorEndpoint, musicEndpoint]
-ep.forEach(x => router = x(router))  
+ep.forEach(x => x(koaRouter))  
 
 app
-  .use(router.routes())
+  .use(koaRouter.routes())
   .listen(3000)
