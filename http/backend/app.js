@@ -9,6 +9,4 @@ koaRouter
 
 app
   .use(koaRouter.routes())
-  .use(koaRouter.allowedMethods())
-
-app.listen(3000)
+  .listen(3000)
