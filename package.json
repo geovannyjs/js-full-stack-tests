@@ -11,5 +11,9 @@
   "bugs": {
     "url": "https://github.com/geovannyjs/js-full-stack-tests/issues"
   },
-  "homepage": "https://github.com/geovannyjs/js-full-stack-tests#readme"
+  "homepage": "https://github.com/geovannyjs/js-full-stack-tests#readme",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-router": "^10.1.1"
+  }
 }
