@@ -1,0 +1,15 @@
+{
+  "name": "js-full-stack-tests",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geovannyjs/js-full-stack-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geovannyjs/js-full-stack-tests/issues"
+  },
+  "homepage": "https://github.com/geovannyjs/js-full-stack-tests#readme"
+}
