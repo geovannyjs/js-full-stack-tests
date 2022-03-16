@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  db:
+    image: "postgres:13.1-alpine"
+    container_name: "app-postgres"
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "app"
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: bind
+        source: ./docker/postgresql/data
+        target: /var/lib/postgresql/data
