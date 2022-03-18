@@ -4,7 +4,7 @@ const koaBody = require('koa-body')
 module.exports = ({ router, db }) => {
 
   router
-    .get('/api/v1/author', async ctx => ctx.body = 'Author!')
+    .get('/api/v1/author', async ctx => db.query('select * from author').then(r => ctx.body = { rows: r.rows }))
     .post('/api/v1/author', koaBody(), async ctx => {
 
       let json = ctx.request.body
