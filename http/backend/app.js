@@ -22,7 +22,7 @@ koaRouter
   .get('/', async ctx => ctx.body = 'Hello World!')
 
 const ep = [albumEndpoint, authorEndpoint, musicEndpoint]
-ep.forEach(x => x(koaRouter))  
+ep.forEach(x => x({ router: koaRouter, db: pool }))  
 
 app
   .use(koaRouter.routes())
