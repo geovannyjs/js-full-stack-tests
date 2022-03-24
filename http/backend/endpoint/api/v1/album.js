@@ -1,12 +1,14 @@
 const koaBody = require('koa-body')
-const { default: SQL } = require('sql-template-strings')
+const SQL = require('sql-template-strings')
 
 
 module.exports = ({ router, db }) => {
 
   router
-    .get('/api/v1/album', async ctx => db.query(SQL`select * from album`)
-    .then(r => ctx.body = { rows: r.rows }))
+    .get('/api/v1/album', async ctx => 
+      db.query(SQL`select * from album`)
+        .then(r => ctx.body = { rows: r.rows })
+    )
     .post('/api/v1/album', koaBody(), async ctx => {
 
       let json = ctx.request.body
